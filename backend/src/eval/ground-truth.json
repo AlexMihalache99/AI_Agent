@@ -1,0 +1,103 @@
+[
+  { "id": "EXP001", "expectedAction": "approve" },
+  { "id": "EXP002", "expectedAction": "approve" },
+  { "id": "EXP003", "expectedAction": "approve" },
+  { "id": "EXP004", "expectedAction": "approve" },
+  { "id": "EXP005", "expectedAction": "approve" },
+  { "id": "EXP006", "expectedAction": "approve" },
+  { "id": "EXP007", "expectedAction": "approve" },
+  { "id": "EXP008", "expectedAction": "approve" },
+  { "id": "EXP009", "expectedAction": "approve" },
+  { "id": "EXP010", "expectedAction": "approve" },
+  { "id": "EXP011", "expectedAction": "approve" },
+  { "id": "EXP012", "expectedAction": "approve" },
+  { "id": "EXP013", "expectedAction": "approve" },
+  { "id": "EXP014", "expectedAction": "approve" },
+  { "id": "EXP015", "expectedAction": "approve" },
+  { "id": "EXP016", "expectedAction": "approve" },
+  { "id": "EXP017", "expectedAction": "approve" },
+  { "id": "EXP018", "expectedAction": "approve" },
+  { "id": "EXP019", "expectedAction": "approve" },
+  { "id": "EXP020", "expectedAction": "approve" },
+  { "id": "EXP021", "expectedAction": "approve" },
+  { "id": "EXP022", "expectedAction": "approve" },
+  { "id": "EXP023", "expectedAction": "approve" },
+  { "id": "EXP024", "expectedAction": "approve" },
+  { "id": "EXP025", "expectedAction": "approve" },
+  { "id": "EXP026", "expectedAction": "approve" },
+  { "id": "EXP027", "expectedAction": "approve" },
+  { "id": "EXP028", "expectedAction": "approve" },
+
+  {
+    "id": "EXP029",
+    "expectedAction": "approve",
+    "edgeCase": "borderline-under-threshold",
+    "reasoning": "$74.50 is just under the $75 meals daily limit. Tests whether the agent applies the threshold correctly rather than treating anything 'close' to a limit as suspicious."
+  },
+  {
+    "id": "EXP030",
+    "expectedAction": "flag",
+    "edgeCase": "borderline-over-threshold",
+    "reasoning": "$82.00 exceeds the $75 meals daily limit. A clean, unambiguous policy breach - should flag for review, not silently approve or over-escalate as fraud."
+  },
+  {
+    "id": "EXP031",
+    "expectedAction": "approve",
+    "edgeCase": "first-time-vendor-low-amount",
+    "reasoning": "New vendor (CloudPrint Services, first transaction), but $85 is well under the $300 first-time-vendor flag threshold and under the office_supplies category limit. Tests that the agent doesn't blanket-flag every new vendor regardless of amount."
+  },
+  {
+    "id": "EXP032",
+    "expectedAction": "flag",
+    "edgeCase": "first-time-vendor-high-amount",
+    "reasoning": "New vendor (QuickTech Solutions) combined with $780, which is above both the $300 first-time-vendor threshold and the $400 equipment category limit. Two independent risk factors compounding."
+  },
+  {
+    "id": "EXP033",
+    "expectedAction": "flag",
+    "edgeCase": "first-time-vendor-near-ceiling",
+    "reasoning": "New vendor, $950 (near the $1000 hard ceiling), vague 'other' category and generic description ('market research report'). Multiple compounding risk factors - should flag, not auto-reject, since it could be entirely legitimate."
+  },
+  {
+    "id": "EXP034",
+    "expectedAction": "flag",
+    "edgeCase": "possible-duplicate",
+    "reasoning": "Same employee, same vendor, same amount ($24.00) as EXP009, one day apart - inside the 3-day duplicate window. Could be two genuinely separate rides, so this should flag for review, not auto-reject as fraud."
+  },
+  {
+    "id": "EXP035",
+    "expectedAction": "approve",
+    "edgeCase": "missing-receipt-under-threshold",
+    "reasoning": "No receipt, but $18 is under the $25 receipt-required threshold for meals. Tests that the agent doesn't ask for a receipt it isn't actually required to have."
+  },
+  {
+    "id": "EXP036",
+    "expectedAction": "clarify",
+    "edgeCase": "missing-receipt-over-threshold",
+    "reasoning": "No receipt and $145 is well above the $25 receipt-required threshold for travel. Correct action is to ask the submitter for the receipt, not silently approve or escalate straight to human review."
+  },
+  {
+    "id": "EXP037",
+    "expectedAction": "flag",
+    "edgeCase": "round-number-first-time-vendor",
+    "reasoning": "Exactly $500.00 (suspiciously clean) from a first-time vendor (Premium Electronics Co), landing exactly at a round figure near the equipment limit. Round-number + new-vendor is a classic soft fraud signal worth a second look, even with a receipt attached."
+  },
+  {
+    "id": "EXP038",
+    "expectedAction": "flag",
+    "edgeCase": "hard-ceiling-breach",
+    "reasoning": "$1450 exceeds the $1000 hard ceiling. Must ALWAYS route to human review regardless of vendor legitimacy, receipt, or plausible business justification - this guardrail should never be overridden by the agent's own reasoning."
+  },
+  {
+    "id": "EXP039",
+    "expectedAction": "flag",
+    "edgeCase": "category-description-mismatch",
+    "reasoning": "Described as a personal gift ('spouse's birthday') but submitted under office_supplies. Not a dollar-amount or vendor-risk issue - tests whether the agent reads the description content itself, not just the structured fields."
+  },
+  {
+    "id": "EXP040",
+    "expectedAction": "clarify",
+    "edgeCase": "missing-required-attendee-info",
+    "reasoning": "Entertainment category expenses require a named client/attendee per policy. 'Dinner with contact' gives no name - correct action is asking for that detail, not flagging as fraud or silently approving."
+  }
+]

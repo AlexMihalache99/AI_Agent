@@ -1,0 +1,51 @@
+[
+  {
+    "employeeId": "EMP001",
+    "name": "Maria Ionescu",
+    "department": "Engineering",
+    "spendingBaseline": {
+      "meals": { "avgAmount": 18, "typicalFrequencyPerWeek": 3 },
+      "travel": { "avgAmount": 150, "typicalFrequencyPerMonth": 1 },
+      "software": { "avgAmount": 90, "typicalFrequencyPerMonth": 1 },
+      "equipment": { "avgAmount": 200, "typicalFrequencyPerQuarter": 1 }
+    }
+  },
+  {
+    "employeeId": "EMP002",
+    "name": "David Popescu",
+    "department": "Sales",
+    "spendingBaseline": {
+      "meals": { "avgAmount": 45, "typicalFrequencyPerWeek": 4 },
+      "travel": { "avgAmount": 400, "typicalFrequencyPerMonth": 2 },
+      "entertainment": { "avgAmount": 80, "typicalFrequencyPerMonth": 3 }
+    }
+  },
+  {
+    "employeeId": "EMP003",
+    "name": "Elena Radu",
+    "department": "Marketing",
+    "spendingBaseline": {
+      "software": { "avgAmount": 120, "typicalFrequencyPerMonth": 1 },
+      "office_supplies": { "avgAmount": 30, "typicalFrequencyPerMonth": 2 }
+    }
+  },
+  {
+    "employeeId": "EMP004",
+    "name": "Andrei Constantinescu",
+    "department": "Engineering",
+    "spendingBaseline": {
+      "equipment": { "avgAmount": 220, "typicalFrequencyPerQuarter": 1 },
+      "office_supplies": { "avgAmount": 40, "typicalFrequencyPerMonth": 1 }
+    }
+  },
+  {
+    "employeeId": "EMP005",
+    "name": "Ioana Dumitrescu",
+    "department": "Sales",
+    "spendingBaseline": {
+      "meals": { "avgAmount": 50, "typicalFrequencyPerWeek": 4 },
+      "entertainment": { "avgAmount": 100, "typicalFrequencyPerMonth": 3 },
+      "travel": { "avgAmount": 380, "typicalFrequencyPerMonth": 2 }
+    }
+  }
+]

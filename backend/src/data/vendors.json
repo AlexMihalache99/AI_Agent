@@ -1,0 +1,20 @@
+[
+  { "vendorId": "V001", "name": "Uber", "category": "travel", "firstSeen": "2024-01-15", "transactionCount": 340, "avgAmount": 22 },
+  { "vendorId": "V002", "name": "Marriott Hotels", "category": "travel", "firstSeen": "2024-02-01", "transactionCount": 45, "avgAmount": 180 },
+  { "vendorId": "V003", "name": "Office Depot", "category": "office_supplies", "firstSeen": "2023-11-10", "transactionCount": 60, "avgAmount": 65 },
+  { "vendorId": "V004", "name": "Slack Technologies", "category": "software", "firstSeen": "2023-06-01", "transactionCount": 12, "avgAmount": 99 },
+  { "vendorId": "V005", "name": "The Capital Grille", "category": "meals", "firstSeen": "2024-03-05", "transactionCount": 8, "avgAmount": 130 },
+  { "vendorId": "V006", "name": "Delta Airlines", "category": "travel", "firstSeen": "2024-01-20", "transactionCount": 25, "avgAmount": 320 },
+  { "vendorId": "V007", "name": "Staples", "category": "office_supplies", "firstSeen": "2023-09-01", "transactionCount": 40, "avgAmount": 55 },
+  { "vendorId": "V008", "name": "Zoom Video", "category": "software", "firstSeen": "2023-05-01", "transactionCount": 12, "avgAmount": 150 },
+  { "vendorId": "V009", "name": "QuickTech Solutions", "category": "equipment", "firstSeen": "2026-07-08", "transactionCount": 1, "avgAmount": 780 },
+  { "vendorId": "V010", "name": "Chipotle", "category": "meals", "firstSeen": "2024-04-01", "transactionCount": 55, "avgAmount": 14 },
+  { "vendorId": "V011", "name": "Best Buy", "category": "equipment", "firstSeen": "2024-02-15", "transactionCount": 5, "avgAmount": 250 },
+  { "vendorId": "V012", "name": "Golden Dragon Restaurant", "category": "entertainment", "firstSeen": "2024-05-01", "transactionCount": 6, "avgAmount": 95 },
+  { "vendorId": "V013", "name": "Global Consulting Partners", "category": "other", "firstSeen": "2026-07-09", "transactionCount": 1, "avgAmount": 950 },
+  { "vendorId": "V014", "name": "Airbnb", "category": "travel", "firstSeen": "2024-06-01", "transactionCount": 10, "avgAmount": 210 },
+  { "vendorId": "V015", "name": "Premium Electronics Co", "category": "equipment", "firstSeen": "2026-07-10", "transactionCount": 1, "avgAmount": 500 },
+  { "vendorId": "V016", "name": "American Airlines", "category": "travel", "firstSeen": "2023-08-15", "transactionCount": 30, "avgAmount": 340 },
+  { "vendorId": "V017", "name": "Panera Bread", "category": "meals", "firstSeen": "2024-01-05", "transactionCount": 70, "avgAmount": 16 },
+  { "vendorId": "V018", "name": "CloudPrint Services", "category": "office_supplies", "firstSeen": "2026-07-08", "transactionCount": 1, "avgAmount": 85 }
+]

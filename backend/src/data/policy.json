@@ -1,0 +1,39 @@
+{
+  "categories": {
+    "meals": {
+      "dailyLimitNoApproval": 75,
+      "receiptRequiredAbove": 25
+    },
+    "travel": {
+      "receiptRequiredAbove": 25,
+      "perTripLimitNoApproval": 600
+    },
+    "office_supplies": {
+      "limitNoApproval": 200,
+      "receiptRequiredAbove": 25
+    },
+    "software": {
+      "limitNoApproval": 500,
+      "receiptRequiredAbove": 25,
+      "note": "Recurring subscriptions from known vendors are lower risk than one-off purchases"
+    },
+    "entertainment": {
+      "limitNoApproval": 150,
+      "receiptRequiredAbove": 25,
+      "note": "Requires client/attendee name in description for client entertainment"
+    },
+    "equipment": {
+      "limitNoApproval": 400,
+      "receiptRequiredAbove": 25
+    },
+    "other": {
+      "limitNoApproval": 100,
+      "receiptRequiredAbove": 25
+    }
+  },
+  "global": {
+    "hardCeilingNoAutoApprove": 1000,
+    "firstTimeVendorFlagThreshold": 300,
+    "duplicateWindowDays": 3
+  }
+}
