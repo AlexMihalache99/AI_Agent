@@ -38,6 +38,7 @@ frontend/
   src/
     App.tsx              Fetches /api/expenses, renders as a table
     App.css
+generate_dataset.py     random dataset generator for users to create their own set of data
 ```
 
 ## Dataset
