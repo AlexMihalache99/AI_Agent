@@ -2,7 +2,7 @@
   { "id": "EXP001", "expectedAction": "approve" },
   { "id": "EXP002", "expectedAction": "approve" },
   { "id": "EXP003", "expectedAction": "approve" },
-  { "id": "EXP004", "expectedAction": "approve" },
+  { "id": "EXP004", "expectedAction": "flag", "edgeCase": "unintentional-policy-breach", "reasoning": "Originally mislabeled 'approve' during dataset authoring. $95 meal exceeds the $75 meals daily limit — a genuine policy violation caught by the eval harness itself, not by manual review. Corrected after the agent flagged it correctly and a manual check confirmed the agent was right." },
   { "id": "EXP005", "expectedAction": "approve" },
   { "id": "EXP006", "expectedAction": "approve" },
   { "id": "EXP007", "expectedAction": "approve" },
