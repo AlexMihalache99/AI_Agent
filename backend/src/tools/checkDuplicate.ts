@@ -15,7 +15,10 @@ export function checkDuplicate(
     if (other.amount !== expense.amount) return false;
 
     const otherDate = new Date(other.date).getTime();
-    const diffDays = Math.abs(expenseDate - otherDate) / msPerDay;
+
+    if (otherDate > expenseDate) return false;
+
+    const diffDays = (expenseDate - otherDate) / msPerDay;
     return diffDays <= duplicateWindowDays;
   });
 
