@@ -13,10 +13,10 @@ Built as a take-home project for a Senior Applied AI Engineer interview.
 - [x] Synthetic dataset: 40 expense records + vendor/employee/policy reference data
 - [x] Ground-truth eval labels for 40 records
 - [x] `/api/expenses` serving the dataset end-to-end to the frontend
-- [ ] Agent core loop (tools, reasoning, verification) — in progress
-- [ ] Guardrails enforcement in code
-- [ ] Eval harness (run agent over full dataset, compute metrics)
-- [ ] Demo UI (live decision feed)
+- [x] Agent core loop (tools, reasoning, verification)
+- [x] Guardrails enforcement in code
+- [x] Eval harness (run agent over full dataset, compute metrics)
+- [ ] Demo UI (live decision feed) - in progress
 
 ## Structure
 
