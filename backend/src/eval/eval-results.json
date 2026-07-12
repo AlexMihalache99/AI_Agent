@@ -1,0 +1,282 @@
+[
+  {
+    "id": "EXP001",
+    "expected": "approve",
+    "predicted": "approve",
+    "correct": true,
+    "modelReasoning": "Small, compliant travel expense ($16.50 Uber ride to a client meeting) with a receipt attached, no policy violations, and no duplicate flags. Nothing anomalous warrants further review."
+  },
+  {
+    "id": "EXP002",
+    "expected": "approve",
+    "predicted": "approve",
+    "correct": true,
+    "modelReasoning": "Compliant meal expense of $13.20 with receipt attached, well within category limits and a normal, unremarkable description."
+  },
+  {
+    "id": "EXP003",
+    "expected": "approve",
+    "predicted": "approve",
+    "correct": true,
+    "modelReasoning": "Expense is policy-compliant, from an established vendor with typical transaction size, consistent with employee's spending baseline, has a receipt, no duplicate detected, and description is clear and business-related."
+  },
+  {
+    "id": "EXP004",
+    "expected": "flag",
+    "predicted": "flag",
+    "correct": true,
+    "modelReasoning": "The $95 meal expense exceeds the company's $75 meals policy limit, which alone precludes auto-approval. It also deviates notably from the employee's usual meal spending baseline ($45 avg), and the description doesn't name the client attendee for this client dinner. Vendor history is normal (established vendor, amount in line with vendor's average), but the policy violation requires human review."
+  },
+  {
+    "id": "EXP005",
+    "expected": "approve",
+    "predicted": "approve",
+    "correct": true,
+    "modelReasoning": "Routine monthly Slack subscription with receipt, compliant with policy, consistent vendor history and employee spending pattern, no duplicate signal."
+  },
+  {
+    "id": "EXP006",
+    "expected": "approve",
+    "predicted": "approve",
+    "correct": true,
+    "modelReasoning": "Expense is policy-compliant, has a receipt, involves a well-established vendor with a typical amount, and matches the employee's normal spending pattern for office supplies. Description is clear and business-related."
+  },
+  {
+    "id": "EXP007",
+    "expected": "approve",
+    "predicted": "approve",
+    "correct": true,
+    "modelReasoning": "Expense is policy-compliant, receipt present, vendor is well-established with typical transaction size, and amount aligns with employee's historical spending in this category. No risk signals found."
+  },
+  {
+    "id": "EXP008",
+    "expected": "approve",
+    "predicted": "approve",
+    "correct": true,
+    "modelReasoning": "Expense is policy-compliant, from an established vendor at a typical amount, consistent with the employee's spending baseline, has a receipt, and includes attendee name and business context. No anomalies found."
+  },
+  {
+    "id": "EXP009",
+    "expected": "approve",
+    "predicted": "flag",
+    "correct": false,
+    "modelReasoning": "The $24 Uber to airport expense is policy-compliant and has a receipt, but it was flagged as a possible duplicate of another expense (EXP034) with the same vendor and amount within the duplicate window. This requires human verification to confirm whether these are two separate legitimate trips or an accidental duplicate submission."
+  },
+  {
+    "id": "EXP010",
+    "expected": "approve",
+    "predicted": "approve",
+    "correct": true,
+    "modelReasoning": "Expense is policy-compliant, has a receipt, matches a well-established vendor's typical transaction amount, aligns with the employee's historical spending pattern, and shows no duplicate signals. Description is clear and business-appropriate."
+  },
+  {
+    "id": "EXP011",
+    "expected": "approve",
+    "predicted": "approve",
+    "correct": true,
+    "modelReasoning": "Zoom subscription renewal is policy-compliant, has a receipt, matches the vendor's typical transaction amount (12 prior transactions, no deviation), aligns with the employee's historical spending in this category, and shows no duplicate risk."
+  },
+  {
+    "id": "EXP012",
+    "expected": "approve",
+    "predicted": "approve",
+    "correct": true,
+    "modelReasoning": "Small, policy-compliant office supplies purchase from an established vendor (Staples, 40 prior transactions) at a typical amount, with receipt attached and no duplicate suspicion."
+  },
+  {
+    "id": "EXP013",
+    "expected": "approve",
+    "predicted": "approve",
+    "correct": true,
+    "modelReasoning": "Small, compliant meal expense with receipt attached, well within policy limits. No anomalies warranting further review."
+  },
+  {
+    "id": "EXP014",
+    "expected": "approve",
+    "predicted": "approve",
+    "correct": true,
+    "modelReasoning": "Small $12.40 lunch expense with receipt, fully compliant with policy thresholds and unremarkable in nature."
+  },
+  {
+    "id": "EXP015",
+    "expected": "approve",
+    "predicted": "approve",
+    "correct": true,
+    "modelReasoning": "Small $19 Uber expense for a client visit, compliant with policy, receipt attached, and no duplicate detected. Nothing anomalous."
+  },
+  {
+    "id": "EXP016",
+    "expected": "approve",
+    "predicted": "approve",
+    "correct": true,
+    "modelReasoning": "Expense is policy-compliant, has a receipt, matches typical vendor transaction amount, is consistent with employee's historical spending in this category, and shows no duplicate signals. Description clearly ties to a legitimate business purpose (client visit lodging)."
+  },
+  {
+    "id": "EXP017",
+    "expected": "approve",
+    "predicted": "approve",
+    "correct": true,
+    "modelReasoning": "Expense complies with policy, vendor is well-established with a typical transaction amount, spending matches employee's historical baseline, no duplicate detected, and description is clear and business-appropriate."
+  },
+  {
+    "id": "EXP018",
+    "expected": "approve",
+    "predicted": "approve",
+    "correct": true,
+    "modelReasoning": "Small, routine travel expense ($21 Uber ride to job site) with receipt attached. Passes policy checks and shows no duplicate signal. Nothing anomalous in the description."
+  },
+  {
+    "id": "EXP019",
+    "expected": "approve",
+    "predicted": "approve",
+    "correct": true,
+    "modelReasoning": "Expense is policy-compliant, from an established vendor at a typical amount, consistent with the employee's historical spending pattern in this category, has a receipt, and shows no duplicate risk."
+  },
+  {
+    "id": "EXP020",
+    "expected": "approve",
+    "predicted": "approve",
+    "correct": true,
+    "modelReasoning": "Expense is policy-compliant, has a receipt, is not a suspected duplicate, and while the amount is above this vendor's average transaction, it is well within the employee's normal spending baseline for meals. No anomalies warrant escalation."
+  },
+  {
+    "id": "EXP021",
+    "expected": "approve",
+    "predicted": "approve",
+    "correct": true,
+    "modelReasoning": "Small, receipted Uber ride to airport, compliant with policy limits, and no duplicate detected."
+  },
+  {
+    "id": "EXP022",
+    "expected": "approve",
+    "predicted": "approve",
+    "correct": true,
+    "modelReasoning": "Small, routine office supplies purchase with receipt, fully compliant with policy, no unusual indicators in description or amount."
+  },
+  {
+    "id": "EXP023",
+    "expected": "approve",
+    "predicted": "approve",
+    "correct": true,
+    "modelReasoning": "Expense is policy-compliant, vendor is well-established with consistent transaction amounts, no duplicate detected, and description is clear and business-appropriate (shared department software license)."
+  },
+  {
+    "id": "EXP024",
+    "expected": "approve",
+    "predicted": "approve",
+    "correct": true,
+    "modelReasoning": "Small $14 Uber ride expense with receipt, fully compliant with policy, and no duplicate detected. No red flags present."
+  },
+  {
+    "id": "EXP025",
+    "expected": "approve",
+    "predicted": "approve",
+    "correct": true,
+    "modelReasoning": "Expense is policy-compliant, has a receipt, matches typical vendor and employee spending patterns, and has a clear business purpose (client visit flight). No anomalies detected."
+  },
+  {
+    "id": "EXP026",
+    "expected": "approve",
+    "predicted": "approve",
+    "correct": true,
+    "modelReasoning": "Expense is compliant with policy, has a receipt, includes attendee/client name, matches established vendor history, and aligns with employee's normal spending pattern in this category. No anomalies found."
+  },
+  {
+    "id": "EXP027",
+    "expected": "approve",
+    "predicted": "approve",
+    "correct": true,
+    "modelReasoning": "Small, receipted lunch expense that is fully policy-compliant with no duplicate concerns. Amount is unremarkable and description is clear."
+  },
+  {
+    "id": "EXP028",
+    "expected": "approve",
+    "predicted": "approve",
+    "correct": true,
+    "modelReasoning": "Small, policy-compliant office supplies purchase from an established vendor (Staples, 40 prior transactions) at a typical amount, with a receipt and no duplicate flag. No risk factors identified."
+  },
+  {
+    "id": "EXP029",
+    "expected": "approve",
+    "predicted": "clarify",
+    "correct": false,
+    "modelReasoning": "All policy, vendor, spending pattern, and duplicate checks are clean, but the description lacks the client attendee's name required for client entertainment expenses. This is a simple missing-detail issue the submitter can resolve directly."
+  },
+  {
+    "id": "EXP030",
+    "expected": "flag",
+    "predicted": "flag",
+    "correct": true,
+    "modelReasoning": "The $82 meal expense exceeds the company's $75 daily meals policy limit, a hard policy violation. Vendor history (established vendor, typical amount) and employee spending pattern (consistent with baseline) show no additional anomalies, but the policy breach still requires human review since it cannot be auto-approved."
+  },
+  {
+    "id": "EXP031",
+    "expected": "approve",
+    "predicted": "approve",
+    "correct": true,
+    "modelReasoning": "Expense is policy-compliant, has a receipt, and the description clearly explains a legitimate business purpose. First-time vendor amount matches vendor's typical transaction size, and though it's above the employee's category baseline, the deviation is modest and not statistically alarming for a small $85 printing charge. No duplicate concerns."
+  },
+  {
+    "id": "EXP032",
+    "expected": "flag",
+    "predicted": "flag",
+    "correct": true,
+    "modelReasoning": "The expense violates the deterministic equipment policy limit ($780 vs $400 cap). It's also from a first-time vendor and significantly exceeds this employee's historical average spend in the equipment category ($220), making it an anomaly worth human review despite a valid receipt."
+  },
+  {
+    "id": "EXP033",
+    "expected": "flag",
+    "predicted": "flag",
+    "correct": true,
+    "modelReasoning": "The $950 amount vastly exceeds the $100 policy limit for the 'other' category. Combined with this being a first-time vendor for a large sum and a vague description that could indicate miscategorization (e.g., should be under a 'professional services' or 'consulting' category with different limits), this needs human review rather than simple clarification."
+  },
+  {
+    "id": "EXP034",
+    "expected": "flag",
+    "predicted": "flag",
+    "correct": true,
+    "modelReasoning": "The expense passes all static policy checks (amount, receipt, category), but it was flagged as a possible duplicate of EXP009 - same employee, vendor, and amount. This requires human judgment to confirm whether these are two separate legitimate rides or an accidental duplicate submission."
+  },
+  {
+    "id": "EXP035",
+    "expected": "approve",
+    "predicted": "approve",
+    "correct": true,
+    "modelReasoning": "Small $18 lunch expense that passes all policy checks (below receipt-required threshold and category limit). Description plainly explains missing receipt. No indication of anomaly."
+  },
+  {
+    "id": "EXP036",
+    "expected": "clarify",
+    "predicted": "clarify",
+    "correct": true,
+    "modelReasoning": "The expense violates the receipt requirement for travel amounts over $25, but this is a simple documentation gap that the submitter can resolve directly by providing a receipt or equivalent proof of purchase."
+  },
+  {
+    "id": "EXP037",
+    "expected": "flag",
+    "predicted": "flag",
+    "correct": true,
+    "modelReasoning": "The $500 amount exceeds the equipment category policy limit of $400, which alone disqualifies it from auto-approval. Additionally, the vendor is first-time use and the amount is more than double the employee's historical average spend in this category, adding further risk. A human should review and make the final call."
+  },
+  {
+    "id": "EXP038",
+    "expected": "flag",
+    "predicted": "flag",
+    "correct": true,
+    "modelReasoning": "The $1450 international flight exceeds both the $600 travel category limit and the $1000 hard ceiling, which per policy always requires human review regardless of other factors. It also deviates significantly from the vendor's typical transaction size and the employee's historical travel spend, though this is plausible for an international trip."
+  },
+  {
+    "id": "EXP039",
+    "expected": "flag",
+    "predicted": "flag",
+    "correct": true,
+    "modelReasoning": "The expense description explicitly states it's a gift card for the employee's spouse's birthday, filed under 'office supplies.' Despite passing standard policy thresholds, this appears to be a personal purchase miscategorized as a business expense, which requires human judgment rather than simple clarification."
+  },
+  {
+    "id": "EXP040",
+    "expected": "clarify",
+    "predicted": "clarify",
+    "correct": true,
+    "modelReasoning": "Expense is policy-compliant, vendor and amount are normal for this employee and vendor history, and no duplicate was found. However, the description 'Dinner with contact' lacks the attendee name and business purpose required for entertainment expenses. This is a missing-information issue the submitter can readily resolve."
+  }
+]
