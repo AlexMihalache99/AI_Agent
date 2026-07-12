@@ -4,22 +4,27 @@ import type {
   EmployeeSpendingPatternResult,
 } from '../agent/types';
 
-/**
- * Structured lookup against employees.json for the given employee +
- * expense category. Tells the agent whether this amount is normal for
- * this specific person, not just for the category in general — the same
- * $90 meal is unremarkable for a Sales employee and unusual for someone
- * whose baseline is $18.
- *
- * @param expense - the expense record being evaluated (needs employeeId, category, amount)
- * @param employees - the loaded employees.json array
- * @returns baseline comparison result; hasBaselineForCategory is false if
- *          this employee has no history in this category (not itself a
- *          risk signal — plenty of legitimate first purchases in a category)
- */
 export function getEmployeeSpendingPattern(
   expense: Expense,
   employees: Employee[]
 ): EmployeeSpendingPatternResult {
-  throw new Error('Not implemented');
+  const employee = employees.find((e) => e.employeeId === expense.employeeId);
+  if (!employee) {
+    throw new Error(`Employee not found: ${expense.employeeId}`);
+  }
+
+  const baseline = employee.spendingBaseline[expense.category];
+  const hasBaselineForCategory = baseline !== undefined;
+  const baselineAvgAmount = baseline ? baseline.avgAmount : null;
+
+  const amountDeviatesFromBaseline = baseline
+    ? expense.amount > baseline.avgAmount * 2
+    : false;
+
+  return {
+    employeeId: employee.employeeId,
+    hasBaselineForCategory,
+    baselineAvgAmount,
+    amountDeviatesFromBaseline,
+  };
 }
