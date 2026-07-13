@@ -1,11 +1,11 @@
+import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
-import dotenv from 'dotenv';
 import expenses from './data/expenses.json';
 import vendors from './data/vendors.json';
 import employees from './data/employees.json';
-
-dotenv.config();
+import { runAgentLoop } from './agent/loop';
+import { getExpenseById } from './agent/dataStore';
 
 const app = express();
 app.use(cors());
@@ -14,7 +14,6 @@ app.use(express.json());
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok' });
 });
-
 
 app.get('/api/expenses', (req, res) => {
   const enriched = expenses.map((e) => {
@@ -27,6 +26,24 @@ app.get('/api/expenses', (req, res) => {
     };
   });
   res.json(enriched);
+});
+
+app.post('/api/evaluate/:id', async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    getExpenseById(id); // throws with a clear message if the id is bad
+  } catch (err) {
+    res.status(404).json({ error: (err as Error).message });
+    return;
+  }
+
+  try {
+    const decision = await runAgentLoop(id);
+    res.json(decision);
+  } catch (err) {
+    res.status(500).json({ error: (err as Error).message });
+  }
 });
 
 const PORT = 3001;
