@@ -144,3 +144,76 @@ npx tsx src/agent/run-single.ts EXP038
 npx tsx src/eval/run-eval.ts --limit 5
 npx tsx src/eval/run-eval.ts
 ```
+
+## Future improvements
+
+This is a scoped take-home demo, not a production system. The honest gap
+isn't the agent logic — it's everything currently in memory or on disk
+that a real deployment would need to be durable, observable, and safe to
+run unattended. Roughly in the order I'd actually tackle them:
+
+### Would block production, not just polish
+
+- **Persistent storage instead of in-memory queues.** `reviewQueue` and
+  `clarificationRequests` (in `agent/store.ts`) vanish on server restart.
+  Needs Postgres or similar so a flagged expense survives a deploy, and
+  so multiple server instances share state instead of each holding half of it.
+- **Idempotency / exactly-once processing.** Nothing stops the same
+  expense from being evaluated twice and double-queued. Needs a
+  processing-state field per record with a DB-level lock or unique
+  constraint, not an in-memory array.
+- **Auth on the API.** `POST /api/evaluate/:id` has zero access control —
+  anyone who can reach the server can trigger a paid LLM call on
+  arbitrary IDs. Needs at minimum an API key or session check.
+- **Retry / timeout handling around the Claude API call.** A network
+  blip or slow response currently fails the whole record. Needs
+  exponential backoff on retryable errors and a hard timeout so one slow
+  call can't hang a batch run.
+
+### Needed before trusting it at real volume
+
+- **Real database for vendors/employees/policy**, not JSON files. Fine
+  at 40 records; falls over once vendor history needs to update in real
+  time. Also what makes `checkDuplicate` actually correct at scale —
+  right now it linearly scans the full in-memory expense array.
+- **Structured logging and tracing per decision** — which tools were
+  called, in what order, with what results, how long the loop took. Both
+  for debugging and for the audit trail a real finance team would require.
+- **Continuous monitoring on the false-approve rate specifically**, not
+  just a manually-run eval script. That's the one metric where a silent
+  regression (a prompt change, a model version bump) has real financial
+  consequence.
+- **Prompt/eval versioning in CI.** The system prompt and the eval set
+  currently have no formal link. A real setup runs the eval suite
+  automatically against every prompt change before it ships — the eval
+  harness as a regression test, not a one-off report.
+
+### Real, but not urgent
+
+- **Containerization (Docker) and orchestration (Kubernetes or a managed
+  equivalent).** Mechanical once the app is stateless — the actual
+  blocker is the in-memory store above, not the containerization itself.
+- **Public hosting / CI-CD pipeline.** Same dependency — worth doing
+  once there's a real backing store and auth, not before; hosting an
+  unauthenticated LLM-calling endpoint publicly is a cost and abuse risk.
+- **Human review queue UI.** `flagForHumanReview` writes to an array with
+  no way for an actual auditor to see or act on it — needs a second UI
+  surface entirely, not just the submitter-facing table this demo has.
+- **Notification delivery for clarification requests.**
+  `requestClarification` currently just logs a question; a real system
+  needs to get that question in front of the submitter (email, Slack,
+  in-app) and handle the async reply.
+- **Cost/latency optimization.** Batching multiple expenses per API call,
+  caching tool results within a session, and evaluating whether a
+  cheaper model handles the easy majority-approve cases while reserving
+  the current model for anything a first pass already flags as ambiguous.
+
+### Explicitly out of scope, and why
+
+- **Vector DB / semantic search** — nothing in this domain benefits from
+  it; the four tools need structured exact-match lookups, not semantic
+  retrieval.
+- **Multi-agent orchestration** — one agent with one clear decision
+  boundary is the right shape for this problem. Splitting it into
+  cooperating agents would add coordination complexity without solving
+  anything the current single loop can't already do.
