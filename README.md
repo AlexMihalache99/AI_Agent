@@ -21,7 +21,7 @@ Built as a take-home project for a Senior Applied AI Engineer interview.
 
 ## Structure
 
-\`\`\`
+```
 backend/
   src/
     index.ts              Express app entry — API routes
@@ -57,7 +57,7 @@ frontend/
     App.tsx                 Expense table with live per-row / run-all agent evaluation
     App.css
 generate_dataset.py     random dataset generator for users to create their own set of data
-\`\`\`
+```
 
 ## Dataset
 
@@ -108,7 +108,7 @@ overridden with a clear, logged reason.
 
 ## Running locally
 
-\`\`\`bash
+```bash
 # Terminal 1
 cd backend
 npm install
@@ -119,7 +119,7 @@ npm run dev
 cd frontend
 npm install
 npm run dev
-\`\`\`
+```
 
 Backend: http://localhost:3001
 Frontend: http://localhost:5173 (dev server proxies `/api/*` to the backend)
@@ -131,7 +131,7 @@ badge to expand the model's reasoning and risk factors.
 
 ## Testing without the UI
 
-\`\`\`bash
+```bash
 cd backend
 
 # Sanity-check the deterministic tools against the tricky records
@@ -143,4 +143,4 @@ npx tsx src/agent/run-single.ts EXP038
 # Run the full eval harness (costs real API calls — try --limit first)
 npx tsx src/eval/run-eval.ts --limit 5
 npx tsx src/eval/run-eval.ts
-\`\`\`
+```
